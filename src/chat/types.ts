@@ -2,8 +2,10 @@ export type BaseProps<T> = {
   className?: string;
 } & Omit<T, 'className'>;
 
+export type UserId = number;
+
 export type UserT = {
-  id: number;
+  id: UserId;
   name: string;
   imageUrl?: string;
 };

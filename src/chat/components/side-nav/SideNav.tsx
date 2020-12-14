@@ -1,27 +1,22 @@
-import React from 'react';
-import { UserT } from '../../types';
+import React, { useCallback } from 'react';
 import { UserTile } from '../user-tile';
+import { useUsers } from '../../../providers';
 
-const users: UserT[] = [
-  { id: 1, name: 'Me', imageUrl: 'http://stakhi.in:3000/media/saagar_guitar.jpg' },
-  {
-    id: 2,
-    name: 'Jimmy Page',
-    imageUrl:
-      'https://guitar.com/wp-content/uploads/2020/05/Jimmy-Page-Hero-Credit-Michael-Ochs-Archives-Getty-Images@2560x1707.jpg',
-  },
-  {
-    id: 3,
-    name: 'Slash',
-    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTw41rTM4NF5mdpIdE8LtlvTLNgakirkjC4gg&usqp=CAU',
-  },
-];
-const SideNav = () => (
-  <div className="flex flex-col border-r border-gray-300 h-full">
-    {users.map(user => (
-      <UserTile {...user} className="border-b border-gray-300" />
-    ))}
-  </div>
-);
+const SideNav = () => {
+  const { users, setConversationUser } = useUsers();
+  const onUserClick = useCallback(
+    userId => {
+      setConversationUser(userId);
+    },
+    [setConversationUser]
+  );
+  return (
+    <div className="flex flex-col border-r border-gray-300 h-full">
+      {users.map(user => (
+        <UserTile {...user} className="border-b border-gray-300" onClick={onUserClick} key={user.id} />
+      ))}
+    </div>
+  );
+};
 
 export default SideNav;
