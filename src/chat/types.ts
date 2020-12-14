@@ -7,3 +7,9 @@ export type UserT = {
   name: string;
   imageUrl?: string;
 };
+
+export type MessageT = {
+  id: number;
+  text: string;
+  userId: number;
+};
