@@ -8,11 +8,15 @@ type ConversationPaneT = { messages: MessageT[]; currentUser: UserT['id']; conve
 
 const ConversationPane: React.FC<ConversationPaneT> = ({ messages = [], currentUser }) => {
   return (
-    <div className="flex-1 flex flex-col overflow-y text-sm conversation-pane overflow-y-auto">
-      {messages.map(datum => {
+    <div className="flex-1 flex flex-col overflow-y text-sm conversation-pane overflow-y-auto p-2">
+      {messages.map((datum, index) => {
         return (
           <Message
-            className={cx('mx-4 mt-2 max-w-md self-start', { 'self-end bg-blue-700': currentUser === datum.userId })}
+            className={cx('mx-4 self-start', {
+              'self-end bg-blue-700': currentUser === datum.userId,
+              'mt-auto': index === 0,
+              'mt-2': index !== 0,
+            })}
             key={datum.id}
           >
             {datum.text}

@@ -1,7 +1,7 @@
 import { UserT } from '../chat/types';
 
 export const dummyUsers: UserT[] = [
-  { id: 1, name: 'Me', imageUrl: 'http://stakhi.in:3000/media/saagar_guitar.jpg' },
+  { id: 1, name: 'Me', imageUrl: 'https://avatars3.githubusercontent.com/u/2216109?s=400&u=096c5dabead0a6505d7e146deb7ee71dc5ea9998&v=4' },
   {
     id: 2,
     name: 'Jimmy Page',

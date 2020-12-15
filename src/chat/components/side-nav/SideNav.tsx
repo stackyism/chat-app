@@ -3,7 +3,7 @@ import { UserTile } from '../user-tile';
 import { useUsers } from '../../../providers';
 
 const SideNav = () => {
-  const { users, setConversationUser } = useUsers();
+  const { users, setConversationUser, conversationUser } = useUsers();
   const onUserClick = useCallback(
     userId => {
       setConversationUser(userId);
@@ -13,7 +13,13 @@ const SideNav = () => {
   return (
     <div className="flex flex-col border-r border-gray-300 h-full">
       {users.map(user => (
-        <UserTile {...user} className="border-b border-gray-300" onClick={onUserClick} key={user.id} />
+        <UserTile
+          {...user}
+          className="border-b border-gray-300"
+          onClick={onUserClick}
+          key={user.id}
+          active={conversationUser === user.id}
+        />
       ))}
     </div>
   );
