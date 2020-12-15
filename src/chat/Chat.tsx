@@ -8,7 +8,7 @@ const Chat = () => (
     <Suspense fallback="Loading...">
       <UsersProvider>
         <MessagesProvider>
-          <div className="flex h-5/6 w-5/6 border-2 border-gray-300 rounded-2xl">
+          <div className="flex h-5/6 w-5/6 border-2 bg-gray-300 border-gray-300 rounded-2xl">
             <div className="w-3/12">
               <SideNav />
             </div>

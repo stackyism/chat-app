@@ -11,7 +11,7 @@ const SideNav = () => {
     [setConversationUser]
   );
   return (
-    <div className="flex flex-col border-r border-gray-300 h-full">
+    <div className="flex flex-col border-r border-gray-400 h-full">
       {users.map(user => (
         <UserTile
           {...user}
